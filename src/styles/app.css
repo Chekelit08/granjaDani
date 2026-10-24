@@ -1,0 +1,306 @@
+@import 'tailwindcss';
+
+/* Modo oscuro: sigue al sistema, salvo que la persona elija uno (data-tema en <html>). */
+@custom-variant dark {
+  &:where([data-tema='oscuro'], [data-tema='oscuro'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-tema='claro']), :root:not([data-tema='claro']) *) {
+      @slot;
+    }
+  }
+}
+
+/*
+ * Sistema visual de Granja Dani. Colores PROVISORIOS hasta tener el logo:
+ * verde campo (marca) y amarillo yema (acento). Para cambiar la marca, tocá
+ * solo --campo / --yema y sus variantes de abajo (claro y oscuro).
+ * En los componentes usá estos tokens, nunca hex sueltos. Ver docs/DECISIONES.md.
+ */
+:root {
+  --campo: #1f5c3b;
+  --yema: #f2b134;
+
+  --fondo: #f6f5f0;
+  --superficie: #ffffff;
+  --superficie-hundida: #efeee8;
+  --texto: #1b1f1c;
+  --texto-suave: #63695f;
+  --borde: #e3e1d8;
+  --borde-fuerte: #cfccc0;
+  --marca: var(--campo);
+  --marca-hover: #18492f;
+  --marca-suave: #e8f1ea;
+  --sobre-marca: #ffffff;
+  --acento: var(--yema);
+  --acento-suave: #fdf3dc;
+  --sobre-acento: #2a1f05;
+  --efectivo: #1e7a46;
+  --efectivo-suave: #e5f4ea;
+  --mp: #0a6fc2;
+  --mp-suave: #e4f0fb;
+  --sobre-medio: #ffffff;
+  --alerta: #c8331f;
+  --alerta-texto: #b42d1b;
+  --alerta-suave: #fdf0ee;
+  --ok: #1a7f4b;
+  --ok-suave: #eaf6ef;
+  --aviso: #8f5a00;
+  --aviso-suave: #fdf5e6;
+  --foco: #0a6fc2;
+  --sombra: 0 1px 2px rgb(27 31 28 / 0.06), 0 1px 1px rgb(27 31 28 / 0.03);
+  --sombra-alta: 0 14px 34px -14px rgb(27 31 28 / 0.3);
+
+  /* Series de gráficos (validadas con la skill dataviz contra #ffffff) */
+  --grafico-efectivo: #2f8a4e;
+  --grafico-mp: #2b7bd0;
+  --grafico-ingresos: #6a4fc9;
+  --grafico-egresos: #d0612a;
+  --grafico-producto: #b97c0c;
+  --grafico-grilla: #ebe9e1;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) {
+    --fondo: #101211;
+    --superficie: #17191a;
+    --superficie-hundida: #1f2221;
+    --texto: #f0f1ec;
+    --texto-suave: #a3a89f;
+    --borde: #2b2f2c;
+    --borde-fuerte: #3b403c;
+    --marca: #2f8a57;
+    --marca-hover: #3a9d66;
+    --marca-suave: #17271e;
+    --acento-suave: #2c2412;
+    --efectivo: #2a8a52;
+    --efectivo-suave: #15281c;
+    --mp: #2f86d6;
+    --mp-suave: #13253a;
+    --alerta: #e0543f;
+    --alerta-texto: #ff8b78;
+    --alerta-suave: #2e1714;
+    --ok: #4cc98a;
+    --ok-suave: #142a1f;
+    --aviso: #f0b34a;
+    --aviso-suave: #2c2414;
+    --foco: #6ea8ff;
+    --sombra: 0 1px 2px rgb(0 0 0 / 0.4);
+    --sombra-alta: 0 12px 32px -12px rgb(0 0 0 / 0.7);
+    --grafico-efectivo: #3fa564;
+    --grafico-mp: #4a92e0;
+    --grafico-ingresos: #8a74e6;
+    --grafico-egresos: #d0612a;
+    --grafico-producto: #b98418;
+    --grafico-grilla: #2b2f2c;
+    color-scheme: dark;
+  }
+}
+
+:root[data-tema='oscuro'] {
+  --fondo: #101211;
+  --superficie: #17191a;
+  --superficie-hundida: #1f2221;
+  --texto: #f0f1ec;
+  --texto-suave: #a3a89f;
+  --borde: #2b2f2c;
+  --borde-fuerte: #3b403c;
+  --marca: #2f8a57;
+  --marca-hover: #3a9d66;
+  --marca-suave: #17271e;
+  --acento-suave: #2c2412;
+  --efectivo: #2a8a52;
+  --efectivo-suave: #15281c;
+  --mp: #2f86d6;
+  --mp-suave: #13253a;
+  --alerta: #e0543f;
+  --alerta-texto: #ff8b78;
+  --alerta-suave: #2e1714;
+  --ok: #4cc98a;
+  --ok-suave: #142a1f;
+  --aviso: #f0b34a;
+  --aviso-suave: #2c2414;
+  --foco: #6ea8ff;
+  --sombra: 0 1px 2px rgb(0 0 0 / 0.4);
+  --sombra-alta: 0 12px 32px -12px rgb(0 0 0 / 0.7);
+  --grafico-efectivo: #3fa564;
+  --grafico-mp: #4a92e0;
+  --grafico-ingresos: #8a74e6;
+  --grafico-egresos: #d0612a;
+  --grafico-producto: #b98418;
+  --grafico-grilla: #2b2f2c;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-hundida: var(--superficie-hundida);
+  --color-texto: var(--texto);
+  --color-suave: var(--texto-suave);
+  --color-borde: var(--borde);
+  --color-borde-fuerte: var(--borde-fuerte);
+  --color-marca: var(--marca);
+  --color-marca-hover: var(--marca-hover);
+  --color-marca-suave: var(--marca-suave);
+  --color-sobre-marca: var(--sobre-marca);
+  --color-acento: var(--acento);
+  --color-acento-suave: var(--acento-suave);
+  --color-sobre-acento: var(--sobre-acento);
+  --color-efectivo: var(--efectivo);
+  --color-efectivo-suave: var(--efectivo-suave);
+  --color-mp: var(--mp);
+  --color-mp-suave: var(--mp-suave);
+  --color-sobre-medio: var(--sobre-medio);
+  --color-alerta: var(--alerta);
+  --color-alerta-texto: var(--alerta-texto);
+  --color-alerta-suave: var(--alerta-suave);
+  --color-ok: var(--ok);
+  --color-ok-suave: var(--ok-suave);
+  --color-aviso: var(--aviso);
+  --color-aviso-suave: var(--aviso-suave);
+  --color-foco: var(--foco);
+  --color-grafico-efectivo: var(--grafico-efectivo);
+  --color-grafico-mp: var(--grafico-mp);
+  --color-grafico-ingresos: var(--grafico-ingresos);
+  --color-grafico-egresos: var(--grafico-egresos);
+  --color-grafico-producto: var(--grafico-producto);
+
+  --font-texto:
+    'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+
+  --radius-tarjeta: 1.125rem;
+
+  --shadow-tarjeta: var(--sombra);
+  --shadow-alta: var(--sombra-alta);
+
+  --animate-aparecer: aparecer 220ms ease-out;
+  --animate-resaltar: resaltar 1.6s ease-out;
+  --animate-entrar: entrar 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-pagina: pagina 280ms ease-out;
+  --animate-flotar: flotar 1.4s ease-out forwards;
+  --animate-pop: pop 380ms cubic-bezier(0.3, 1.6, 0.5, 1);
+  --animate-latir: latir 2.4s ease-in-out infinite;
+  --animate-confeti: confeti 1.8s ease-in forwards;
+
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+  /* Fila nueva en una lista: entra desde arriba. */
+  @keyframes entrar {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+  /* Cambio de pantalla. */
+  @keyframes pagina {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+  /* "+ $ 12.500" que sube y se desvanece sobre el total. */
+  @keyframes flotar {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.9);
+    }
+    15% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-28px) scale(1);
+    }
+  }
+  /* Aparición con rebote (íconos de éxito, producto elegido). */
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+  /* Punto "día abierto" que late suave. */
+  @keyframes latir {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  /* Papelitos al cerrar el día con la caja justa. */
+  @keyframes confeti {
+    from {
+      opacity: 1;
+      transform: translate(0, -10vh) rotate(0deg);
+    }
+    to {
+      opacity: 0;
+      transform: translate(var(--deriva, 0px), 105vh) rotate(var(--giro, 540deg));
+    }
+  }
+  @keyframes resaltar {
+    from {
+      background-color: var(--acento-suave);
+    }
+    to {
+      background-color: var(--superficie);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: var(--font-texto);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--fondo);
+  }
+
+  :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--foco) 55%, transparent);
+    outline-offset: 2px;
+  }
+}
+
+/* Botones y tarjetas que responden al toque: se hunden un poco al apretar. */
+@utility presionable {
+  transition:
+    transform 120ms ease-out,
+    box-shadow 160ms ease-out,
+    background-color 160ms ease-out,
+    border-color 160ms ease-out;
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+}
+
+@utility cifras {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
