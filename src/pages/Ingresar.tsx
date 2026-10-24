@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router'
 import { z } from 'zod'
-import marca from '../assets/marca.svg'
+import logo from '../assets/logo-completo.webp'
 import { Boton } from '../components/ui/Boton'
 import { Campo } from '../components/ui/Campo'
 import { MensajeError } from '../components/ui/Estados'
@@ -18,7 +18,7 @@ const esquema = z.object({
 })
 type Datos = z.infer<typeof esquema>
 
-/** Pantalla partida: la marca a la izquierda (arriba en el celular) y el formulario. */
+/** Pantalla partida: el logo sobre su papel a la izquierda (arriba en el celular) y el formulario. */
 export function PantallaAcceso({
   titulo,
   children,
@@ -28,31 +28,24 @@ export function PantallaAcceso({
 }) {
   return (
     <main className="grid min-h-dvh lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-      <div className="relative flex flex-col justify-between overflow-hidden bg-marca px-6 py-8 text-sobre-marca sm:px-10 lg:py-12">
-        <div
-          aria-hidden="true"
-          className="absolute -right-24 -bottom-24 size-80 rounded-full bg-acento/20 lg:size-[28rem]"
+      <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden border-b-[6px] border-marca bg-papel px-6 py-8 text-tinta lg:border-r-[6px] lg:border-b-0 lg:py-12">
+        <img
+          src={logo}
+          alt="Granja Los Amigos · Estación de Moreno"
+          width={960}
+          height={673}
+          className="w-56 animate-pop sm:w-72 lg:w-full lg:max-w-md"
         />
-        <div className="relative flex items-center gap-3">
-          <img src={marca} alt="" className="w-11 animate-pop" />
-          <span className="text-xl font-extrabold tracking-tight">Granja Dani</span>
-        </div>
-        <div className="relative mt-8 hidden max-w-sm lg:block">
-          <p className="text-4xl leading-tight font-extrabold tracking-tight">
-            La planilla del día, sin papel.
-          </p>
-          <p className="mt-3 text-sobre-marca/75">
-            Kilos, pesos, efectivo y Mercado Pago de cada producto, al instante.
-          </p>
-        </div>
-        <p className="relative mt-6 hidden text-sm text-sobre-marca/60 lg:block">
-          Pollería · Granja
+        <p className="hidden max-w-sm text-center text-lg font-semibold text-tinta/80 lg:block">
+          La planilla del día, sin papel: kilos, pesos, efectivo y Mercado Pago de cada producto.
         </p>
       </div>
       <div className="flex items-center justify-center px-4 py-10">
         <div className="w-full max-w-sm">
           <h1 className="text-3xl font-extrabold tracking-tight">{titulo}</h1>
-          <p className="mt-1 mb-6 text-sm text-suave">Granja Dani · Caja y planilla del día</p>
+          <p className="mt-1 mb-6 text-sm text-suave">
+            Granja Los Amigos · Caja y planilla del día
+          </p>
           <div className="animate-pagina rounded-tarjeta border border-borde bg-superficie p-6 shadow-tarjeta">
             {children}
           </div>

@@ -150,7 +150,7 @@ export default function Usuarios() {
 function DatosDeIngreso({ datos, titulo }: { datos: Datos; titulo: string }) {
   const [copiado, setCopiado] = useState(false)
   const texto =
-    `Granja Dani — tus datos para entrar:\n${location.origin}\nUsuario: ${datos.usuario}\nContraseña: ${datos.clave}\n${datos.pedirCambio ? '(La primera vez te pide elegir una nueva.)' : ''}`.trim()
+    `Granja Los Amigos — tus datos para entrar:\n${location.origin}\nUsuario: ${datos.usuario}\nContraseña: ${datos.clave}\n${datos.pedirCambio ? '(La primera vez te pide elegir una nueva.)' : ''}`.trim()
   return (
     <div
       role="status"

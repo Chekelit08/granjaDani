@@ -13,29 +13,33 @@
 }
 
 /*
- * Sistema visual de Granja Dani. Colores PROVISORIOS hasta tener el logo:
- * verde campo (marca) y amarillo yema (acento). Para cambiar la marca, tocá
- * solo --campo / --yema y sus variantes de abajo (claro y oscuro).
- * En los componentes usá estos tokens, nunca hex sueltos. Ver docs/DECISIONES.md.
+ * Sistema visual de Granja Los Amigos, sacado del logo (brand/):
+ * rojo de la cinta (marca), amarillo (acento), blanco y el crema del papel del logo,
+ * con el marrón de las letras para el texto. Ver docs/DECISIONES.md → "Marca".
+ * En los componentes usá estos tokens, nunca hex sueltos.
  */
 :root {
-  --campo: #1f5c3b;
-  --yema: #f2b134;
+  --rojo: #cc3430;
+  --amarillo: #f4b52c;
+  /* El fondo del logo: donde va la imagen del logo, va este color (así no se ve el recorte). */
+  --papel: #f5f2eb;
+  /* El marrón de las letras del logo: texto sobre --papel (igual en claro y oscuro). */
+  --tinta: #3d2b20;
 
-  --fondo: #f6f5f0;
+  --fondo: #fbfaf7;
   --superficie: #ffffff;
-  --superficie-hundida: #efeee8;
-  --texto: #1b1f1c;
-  --texto-suave: #63695f;
-  --borde: #e3e1d8;
-  --borde-fuerte: #cfccc0;
-  --marca: var(--campo);
-  --marca-hover: #18492f;
-  --marca-suave: #e8f1ea;
+  --superficie-hundida: #f4f0ea;
+  --texto: #2e211a;
+  --texto-suave: #6e6058;
+  --borde: #ebe4da;
+  --borde-fuerte: #d8ccbd;
+  --marca: var(--rojo);
+  --marca-hover: #b22b27;
+  --marca-suave: #fcecea;
   --sobre-marca: #ffffff;
-  --acento: var(--yema);
-  --acento-suave: #fdf3dc;
-  --sobre-acento: #2a1f05;
+  --acento: var(--amarillo);
+  --acento-suave: #fef4dc;
+  --sobre-acento: #3a2a05;
   --efectivo: #1e7a46;
   --efectivo-suave: #e5f4ea;
   --mp: #0a6fc2;
@@ -49,8 +53,8 @@
   --aviso: #8f5a00;
   --aviso-suave: #fdf5e6;
   --foco: #0a6fc2;
-  --sombra: 0 1px 2px rgb(27 31 28 / 0.06), 0 1px 1px rgb(27 31 28 / 0.03);
-  --sombra-alta: 0 14px 34px -14px rgb(27 31 28 / 0.3);
+  --sombra: 0 1px 2px rgb(46 33 26 / 0.06), 0 1px 1px rgb(46 33 26 / 0.03);
+  --sombra-alta: 0 14px 34px -14px rgb(46 33 26 / 0.3);
 
   /* Series de gráficos (validadas con la skill dataviz contra #ffffff) */
   --grafico-efectivo: #2f8a4e;
@@ -58,24 +62,24 @@
   --grafico-ingresos: #6a4fc9;
   --grafico-egresos: #d0612a;
   --grafico-producto: #b97c0c;
-  --grafico-grilla: #ebe9e1;
+  --grafico-grilla: #eee8df;
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema='claro']) {
-    --fondo: #101211;
-    --superficie: #17191a;
-    --superficie-hundida: #1f2221;
-    --texto: #f0f1ec;
-    --texto-suave: #a3a89f;
-    --borde: #2b2f2c;
-    --borde-fuerte: #3b403c;
-    --marca: #2f8a57;
-    --marca-hover: #3a9d66;
-    --marca-suave: #17271e;
-    --acento-suave: #2c2412;
+    --fondo: #14100e;
+    --superficie: #1d1815;
+    --superficie-hundida: #26201c;
+    --texto: #f4efe9;
+    --texto-suave: #b0a59c;
+    --borde: #332b26;
+    --borde-fuerte: #463b34;
+    --marca: #d63c37;
+    --marca-hover: #e5504a;
+    --marca-suave: #34191a;
+    --acento-suave: #33280f;
     --efectivo: #2a8a52;
     --efectivo-suave: #15281c;
     --mp: #2f86d6;
@@ -95,23 +99,23 @@
     --grafico-ingresos: #8a74e6;
     --grafico-egresos: #d0612a;
     --grafico-producto: #b98418;
-    --grafico-grilla: #2b2f2c;
+    --grafico-grilla: #332b26;
     color-scheme: dark;
   }
 }
 
 :root[data-tema='oscuro'] {
-  --fondo: #101211;
-  --superficie: #17191a;
-  --superficie-hundida: #1f2221;
-  --texto: #f0f1ec;
-  --texto-suave: #a3a89f;
-  --borde: #2b2f2c;
-  --borde-fuerte: #3b403c;
-  --marca: #2f8a57;
-  --marca-hover: #3a9d66;
-  --marca-suave: #17271e;
-  --acento-suave: #2c2412;
+  --fondo: #14100e;
+  --superficie: #1d1815;
+  --superficie-hundida: #26201c;
+  --texto: #f4efe9;
+  --texto-suave: #b0a59c;
+  --borde: #332b26;
+  --borde-fuerte: #463b34;
+  --marca: #d63c37;
+  --marca-hover: #e5504a;
+  --marca-suave: #34191a;
+  --acento-suave: #33280f;
   --efectivo: #2a8a52;
   --efectivo-suave: #15281c;
   --mp: #2f86d6;
@@ -131,7 +135,7 @@
   --grafico-ingresos: #8a74e6;
   --grafico-egresos: #d0612a;
   --grafico-producto: #b98418;
-  --grafico-grilla: #2b2f2c;
+  --grafico-grilla: #332b26;
   color-scheme: dark;
 }
 
@@ -150,6 +154,8 @@
   --color-acento: var(--acento);
   --color-acento-suave: var(--acento-suave);
   --color-sobre-acento: var(--sobre-acento);
+  --color-papel: var(--papel);
+  --color-tinta: var(--tinta);
   --color-efectivo: var(--efectivo);
   --color-efectivo-suave: var(--efectivo-suave);
   --color-mp: var(--mp);

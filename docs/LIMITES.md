@@ -4,7 +4,7 @@ Valores de referencia a octubre de 2026. **Cambian seguido: verificalos en la p�
 
 ## Supabase (Free) — <https://supabase.com/pricing>
 
-| Recurso                  | Límite aprox.                         | Cuánto usa Granja Dani                        | Si se supera                                             |
+| Recurso                  | Límite aprox.                         | Cuánto usa Granja Los Amigos                  | Si se supera                                             |
 | ------------------------ | ------------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
 | Base de datos            | 500 MB                                | ~10–20 MB por año (100 ventas por día)        | Pasa a solo lectura hasta liberar espacio o pasar a pago |
 | Usuarios activos por mes | 50.000                                | 3 a 5                                         | —                                                        |

@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router'
-import marca from '../../assets/marca.svg'
+import logo from '../../assets/logo-cinta.webp'
 import { useTema, type Tema } from '../../lib/tema'
 import { useSesion } from '../../sesion/Sesion'
 
@@ -44,18 +44,16 @@ const TEMAS: Record<Tema, { siguiente: Tema; texto: string; Icono: LucideIcon }>
   oscuro: { siguiente: 'sistema', texto: 'Tema oscuro', Icono: Moon },
 }
 
-/** Marca provisoria: se reemplaza cuando llegue el logo (src/assets/marca.svg). */
+/** El logo de la granja (la parte "GRANJA · LOS AMIGOS"), sobre su mismo color de papel. */
 function Marca() {
   return (
-    <div className="flex items-center gap-2.5">
-      <span className="grid size-10 place-items-center rounded-xl bg-sobre-marca/12 ring-1 ring-sobre-marca/20">
-        <img src={marca} alt="" className="w-7" />
-      </span>
-      <span className="leading-tight">
-        <span className="block text-base font-extrabold tracking-tight">Granja Dani</span>
-        <span className="block text-xs font-medium text-sobre-marca/70">Pollería · Granja</span>
-      </span>
-    </div>
+    <img
+      src={logo}
+      alt="Granja Los Amigos"
+      width={720}
+      height={213}
+      className="h-12 w-auto sm:h-14"
+    />
   )
 }
 
@@ -76,7 +74,7 @@ function Pestanas() {
                 `flex min-h-12 items-center gap-2 border-b-[3px] px-3 text-sm font-semibold transition-colors ${
                   isActive
                     ? 'border-acento text-sobre-marca'
-                    : 'border-transparent text-sobre-marca/70 hover:border-sobre-marca/30 hover:text-sobre-marca'
+                    : 'border-transparent text-sobre-marca/80 hover:border-sobre-marca/40 hover:text-sobre-marca'
                 }`
               }
             >
@@ -124,7 +122,7 @@ function MenuUsuario() {
         onClick={() => setAbierto((a) => !a)}
         aria-expanded={abierto}
         aria-haspopup="menu"
-        className="flex min-h-11 items-center gap-2 rounded-full py-1 pr-2 pl-1 hover:bg-sobre-marca/10"
+        className="flex min-h-11 items-center gap-2 rounded-full py-1 pr-2 pl-1 text-tinta hover:bg-tinta/8"
       >
         <span
           aria-hidden="true"
@@ -134,11 +132,11 @@ function MenuUsuario() {
         </span>
         <span className="hidden text-left leading-tight sm:block">
           <span className="block max-w-32 truncate text-sm font-semibold">{perfil?.nombre}</span>
-          <span className="block text-xs text-sobre-marca/70">
+          <span className="block text-xs text-tinta/70">
             {perfil?.rol === 'admin' ? 'Dueño' : 'Mostrador'}
           </span>
         </span>
-        <ChevronDown className="size-4 text-sobre-marca/70" aria-hidden="true" />
+        <ChevronDown className="size-4 text-tinta/70" aria-hidden="true" />
       </button>
       {abierto && (
         <div
@@ -179,12 +177,17 @@ export function Marco() {
         Ir al contenido
       </a>
 
-      <header className="sticky top-0 z-40 bg-marca text-sobre-marca shadow-alta">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-          <Marca />
-          <MenuUsuario />
+      <header className="sticky top-0 z-40 shadow-alta">
+        <div className="bg-papel">
+          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-8">
+            <Marca />
+            <MenuUsuario />
+          </div>
         </div>
-        <Pestanas />
+        {/* La cinta roja del logo: lleva las pestañas (o queda como franja fina para el mostrador). */}
+        <div className="min-h-1.5 bg-marca text-sobre-marca">
+          <Pestanas />
+        </div>
       </header>
 
       <main

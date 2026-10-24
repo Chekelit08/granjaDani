@@ -1,5 +1,5 @@
 -- =============================================================================
--- Granja Dani — Vaciar las cargas de prueba de la base real (una sola vez)
+-- Granja Los Amigos — Vaciar las cargas de prueba de la base real (una sola vez)
 -- Pegalo entero en Supabase → SQL Editor y apretá Run.
 --
 -- Borra: días, ventas, salidas de caja, egresos y la auditoría.

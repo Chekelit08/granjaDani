@@ -11,9 +11,9 @@ import {
   type ResumenMensual,
 } from './resumenMensual'
 
-// Colores provisorios de la marca (src/styles/app.css: --campo y --texto).
-const CAMPO: [number, number, number] = [31, 92, 59]
-const TINTA: [number, number, number] = [27, 31, 28]
+// Colores del logo (src/styles/app.css: --rojo y --tinta).
+const ROJO: [number, number, number] = [204, 52, 48]
+const TINTA: [number, number, number] = [61, 43, 32]
 
 /** Resumen mensual en PDF (A4) para llevar al contador. */
 export function descargarPdf(r: ResumenMensual): void {
@@ -21,12 +21,12 @@ export function descargarPdf(r: ResumenMensual): void {
   const ancho = doc.internal.pageSize.getWidth()
   const p = (n: number) => formatearPesos(n)
 
-  doc.setFillColor(...CAMPO)
+  doc.setFillColor(...ROJO)
   doc.rect(0, 0, ancho, 24, 'F')
   doc.setTextColor(255, 255, 255)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(18)
-  doc.text('GRANJA DANI', 14, 11)
+  doc.text('GRANJA LOS AMIGOS', 14, 11)
   doc.setFontSize(12)
   doc.text(`Resumen de ${r.titulo}`, 14, 18)
   doc.setFont('helvetica', 'normal')
@@ -44,11 +44,11 @@ export function descargarPdf(r: ResumenMensual): void {
   const estilo = {
     styles: { font: 'helvetica', fontSize: 9, textColor: TINTA, cellPadding: 1.6 },
     headStyles: {
-      fillColor: CAMPO,
+      fillColor: ROJO,
       textColor: [255, 255, 255] as [number, number, number],
       fontStyle: 'bold' as const,
     },
-    alternateRowStyles: { fillColor: [244, 243, 238] as [number, number, number] },
+    alternateRowStyles: { fillColor: [245, 242, 235] as [number, number, number] },
     margin: { left: 14, right: 14 },
   }
   const montos = (desde: number, hasta: number) =>
@@ -105,7 +105,7 @@ export function descargarPdf(r: ResumenMensual): void {
     body: r.egresosCategoria.map((c) => [c.categoria, String(c.cantidad), p(c.total)]),
     ...alinear(1),
     foot: [['Total egresos', '', p(r.totalEgresos)]],
-    footStyles: { fillColor: [232, 241, 234], textColor: TINTA, fontStyle: 'bold' },
+    footStyles: { fillColor: [252, 236, 234], textColor: TINTA, fontStyle: 'bold' },
     columnStyles: montos(1, 2),
   })
 
@@ -128,9 +128,9 @@ export function descargarPdf(r: ResumenMensual): void {
   for (let i = 1; i <= paginas; i++) {
     doc.setPage(i)
     doc.setFontSize(8)
-    doc.setTextColor(99, 105, 95)
+    doc.setTextColor(110, 96, 88)
     y = doc.internal.pageSize.getHeight() - 8
-    doc.text(`Granja Dani · ${r.titulo} · página ${i} de ${paginas}`, ancho / 2, y, {
+    doc.text(`Granja Los Amigos · ${r.titulo} · página ${i} de ${paginas}`, ancho / 2, y, {
       align: 'center',
     })
   }

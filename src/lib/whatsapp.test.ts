@@ -44,7 +44,7 @@ const base: DatosResumen = {
 describe('textoResumen', () => {
   it('resume el día con lo que importa', () => {
     const t = textoResumen(base)
-    expect(t).toContain('Granja Dani · cierre del sábado 17/10')
+    expect(t).toContain('Granja Los Amigos · cierre del sábado 17/10')
     expect(t).toMatch(/Total: \*\$\s245\.300\* \(87 ventas · 52,75 kg\)/)
     expect(t).toMatch(/Efectivo: \$\s165\.300/)
     expect(t).toMatch(/Mercado Pago: \$\s80\.000/)

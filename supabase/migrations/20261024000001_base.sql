@@ -1,5 +1,5 @@
 -- =============================================================================
--- Granja Dani — base del esquema
+-- Granja Los Amigos — base del esquema
 -- Perfiles y roles, configuración, productos, jornadas, ventas por producto,
 -- salidas de caja, egresos y auditoría. Los permisos van con RLS; las
 -- operaciones con reglas de negocio (abrir, vender, anular, cerrar, reabrir)

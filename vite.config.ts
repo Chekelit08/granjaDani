@@ -9,17 +9,17 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'iconos/apple-touch-icon.png'],
+      includeAssets: ['favicon.png', 'iconos/apple-touch-icon.png'],
       manifest: {
-        name: 'Granja Dani',
-        short_name: 'Granja Dani',
+        name: 'Granja Los Amigos',
+        short_name: 'Los Amigos',
         description: 'Planilla del día, caja y números de la granja',
         lang: 'es-AR',
         start_url: '/',
         display: 'standalone',
         orientation: 'any',
-        background_color: '#f6f5f0',
-        theme_color: '#1f5c3b',
+        background_color: '#f5f2eb',
+        theme_color: '#cc3430',
         icons: [
           { src: '/iconos/icono-192.png', sizes: '192x192', type: 'image/png' },
           { src: '/iconos/icono-512.png', sizes: '512x512', type: 'image/png' },

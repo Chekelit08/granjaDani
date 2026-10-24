@@ -1,5 +1,5 @@
 -- =============================================================================
--- Granja Dani — reportes
+-- Granja Los Amigos — reportes
 -- Los totales los calcula la base y excluyen lo anulado.
 -- =============================================================================
 

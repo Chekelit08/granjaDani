@@ -44,7 +44,7 @@ export function textoResumen(r: DatosResumen): string {
   const [anio, mes, dia] = r.fecha.split('-')
   const nombreDia = DIAS[new Date(Number(anio), Number(mes) - 1, Number(dia)).getDay()]
   const lineas = [
-    `*Granja Dani · cierre del ${nombreDia} ${dia}/${mes}*`,
+    `*Granja Los Amigos · cierre del ${nombreDia} ${dia}/${mes}*`,
     `Total: *${p(r.total)}* (${r.cantidad_tickets} ${r.cantidad_tickets === 1 ? 'venta' : 'ventas'} · ${formatearCantidad(r.kilos)})`,
     `• Efectivo: ${p(r.total_efectivo)}`,
     `• Mercado Pago: ${p(r.total_mercadopago)}`,
@@ -109,7 +109,7 @@ function diaYFecha(fecha: string): { dia: string; ddmm: string } {
 export function textoResumenSemanal(s: DatosSemana): string {
   const p = (n: number) => formatearPesos(n, { sinCentavos: n % 1 === 0 })
   const lineas = [
-    `*Granja Dani · semana del ${diaYFecha(s.desde).ddmm} al ${diaYFecha(s.hasta).ddmm}*`,
+    `*Granja Los Amigos · semana del ${diaYFecha(s.desde).ddmm} al ${diaYFecha(s.hasta).ddmm}*`,
   ]
   if (s.cantidad_tickets === 0) {
     lineas.push('No hubo ventas cargadas esta semana.')

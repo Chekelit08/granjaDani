@@ -21,7 +21,7 @@ Marcá cada paso. Si alguno falla, frená y revisalo antes de seguir.
 
 - [ ] Desde **Usuarios**, crear la cuenta **Mostrador** (rol cajero).
 - [ ] Entrar como Mostrador en el celular o la compu del local. **No** ve Consulta, Panel, Productos, Egresos ni Usuarios.
-- [ ] Instalar la app (ícono del huevo).
+- [ ] Instalar la app (ícono del gallo).
 - [ ] Abrir el día con un fondo de caja.
 - [ ] Cargar 3 ventas con el teclado: `mi 1,5` Enter, `pap 2` + `hue 12` + (Mercado Pago), y una por importe (`pe`, Tab, `5000`, Enter).
 - [ ] Ver que la **planilla del día** muestra Kg, $, EFE y MP de cada producto.

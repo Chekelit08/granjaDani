@@ -1,10 +1,10 @@
-# Guía rápida de Granja Dani
+# Guía rápida de Granja Los Amigos
 
 Una página para usar la app todos los días. Es la **planilla del día** de siempre (Kg · $ · EFE · MP por producto), pero se llena sola mientras cargás las ventas.
 
 ## 1. Entrar
 
-Abrí la app (el ícono del huevo en la compu o el celular del local). Escribí el usuario (por ejemplo `mostrador`) o tu email, la contraseña, y tocá **Ingresar**.
+Abrí la app (el ícono del gallo en la compu o el celular del local). Escribí el usuario (por ejemplo `mostrador`) o tu email, la contraseña, y tocá **Ingresar**.
 La sesión queda abierta todo el día; se cierra sola si pasan 12 horas sin usarla.
 
 <img src="capturas/01-ingresar.png" alt="Pantalla para ingresar" width="560">

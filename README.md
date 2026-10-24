@@ -1,4 +1,4 @@
-# Granja Dani
+# Granja Los Amigos
 
 La **planilla del día** de una granja/pollería, sin papel. Cada venta se carga por producto (Milanesa, Pata y muslo, Alitas, Pechuga, Trozado, Congelado, Huevo, Pollo, Papa, Cebolla, Pan rallado, B. horno y condimento, Menudo…) con sus **kilos** y el medio de pago (**Efectivo** o **Mercado Pago**), y la planilla Kg · $ · EFE · MP se arma sola.
 
@@ -7,7 +7,7 @@ La **planilla del día** de una granja/pollería, sin papel. Cada venta se carga
 - PWA instalable, modo claro y oscuro, anda en compu y en celular.
 
 Basada en el software de Avícola GD (mismo stack y reglas de caja), con otro diseño y la carga por producto.
-Los colores y el logo son **provisorios** (ver `docs/DECISIONES.md` → "Marca provisoria").
+Con el logo de **Granja Los Amigos (Estación de Moreno)**, mejorado con Magnific, y sus colores: rojo, amarillo y blanco (ver `docs/DECISIONES.md` → "Marca").
 
 Todo corre en planes gratuitos: React + Vite en **Vercel** (o Cloudflare Pages), base y login en **Supabase** (Postgres con Row Level Security).
 
@@ -62,7 +62,7 @@ supabase/
   tests/            tests pgTAP (RLS y reglas de negocio)
   functions/        Edge Function `usuarios` (crear/bloquear cuentas)
   seed.sql          datos de prueba (solo local)
-brand/              marca provisoria (se reemplaza con el logo de la granja)
+brand/              logo en alta (mejorado con Magnific), la cinta y el gallo del ícono
 scripts/            backup, primer admin, íconos, vaciar pruebas
 e2e/                tests de Playwright
 ```

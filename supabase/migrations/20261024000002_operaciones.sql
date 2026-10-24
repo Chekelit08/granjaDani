@@ -1,5 +1,5 @@
 -- =============================================================================
--- Granja Dani — operaciones de la caja
+-- Granja Los Amigos — operaciones de la caja
 -- Todas las escrituras de jornadas, ventas y salidas pasan por estas funciones,
 -- que validan las reglas de negocio. Los mensajes de error se muestran tal cual
 -- en la app: están escritos para quien atiende el mostrador.

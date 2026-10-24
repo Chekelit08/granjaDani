@@ -12,7 +12,7 @@ const fecha = (f: string) => ({ value: leerFecha(f), format: FECHA, type: Date }
 /** Resumen mensual en Excel: una hoja por tema, con montos como números (para sumar). */
 export async function descargarExcel(r: ResumenMensual): Promise<void> {
   const resumen: SheetData = [
-    [titulo(`Granja Dani — Resumen de ${r.titulo}`)],
+    [titulo(`Granja Los Amigos — Resumen de ${r.titulo}`)],
     [],
     [titulo('Concepto'), titulo('Monto')],
     ['Ventas totales', pesos(r.ventas.total)],

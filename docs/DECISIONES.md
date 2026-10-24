@@ -50,16 +50,34 @@ Por ticket. En una pollería un ticket normal es bastante menor que en una carni
 
 ### Otro diseño, misma comodidad
 
-- **Encabezado verde con pestañas** arriba (GD usa barra lateral gris). En celular las pestañas se deslizan.
-- **Plus Jakarta Sans**, títulos en extra negrita; fondo color hueso; tarjetas más redondeadas (`rounded-tarjeta`).
+- **Encabezado tipo cartel:** franja crema con el logo y, abajo, la cinta roja con las pestañas (GD usa barra lateral gris). En celular las pestañas se deslizan.
+- **Plus Jakarta Sans**, títulos en extra negrita; fondo blanco cálido; tarjetas más redondeadas (`rounded-tarjeta`).
 - **Elemento firma: la planilla en casilleros.** Cada producto es un casillero como en la hoja de papel (Kg · $ arriba, EFE · MP abajo); los que no vendieron quedan punteados. También se ve como tabla con el total.
-- **La caja de un vistazo:** total del día (verde), Efectivo, Mercado Pago y Kilos vendidos; debajo, productos en grilla y el ticket a la derecha con los botones grandes.
-- **Login partido:** la marca a la izquierda, el formulario a la derecha.
+- **La caja de un vistazo:** total del día (rojo), Efectivo, Mercado Pago y Kilos vendidos; debajo, productos en grilla y el ticket a la derecha con los botones grandes.
+- **Login partido:** el logo completo sobre su papel a la izquierda, el formulario a la derecha.
 
-### Marca provisoria
+### Marca: logo de Granja Los Amigos (Estación de Moreno)
 
-**Decisión:** hasta tener el logo y los colores de la granja, la marca es un huevo con un brote (`brand/marca-provisoria.svg`), verde campo `#1f5c3b` y amarillo yema `#f2b134`.
-**Para cambiarla:** reemplazar `brand/marca-provisoria.svg` y `src/assets/marca.svg`, ajustar `--campo` / `--yema` (y sus variantes) en `src/styles/app.css`, los colores de `scripts/generar-iconos.mjs`, `public/favicon.svg`, `theme_color` en `vite.config.ts` e `index.html`, y los de `src/exportar/pdf.ts`; después `node scripts/generar-iconos.mjs`.
+**Decisión:** el logo que pasó el dueño se mejoró con **Magnific** (Precision "sublime", 4x, sin grano: no inventa detalle, así las letras no se deforman) y quedó en `brand/logo-granja-los-amigos.png`. De ahí salen:
+
+- `brand/logo-cinta.png` → `src/assets/logo-cinta.webp`: "GRANJA · LOS AMIGOS", para el encabezado.
+- `src/assets/logo-completo.webp`: el logo entero, para el login.
+- `brand/gallo.png`: el gallo del logo, limpio y con el trazo en el marrón del logo, para el ícono de la app y el favicon (`node scripts/generar-iconos.mjs`).
+
+El fondo del logo es papel crema, no transparente: recortarlo dejaba manchas y las letras blancas de la cinta se perdían. Por eso el logo siempre va sobre **`--papel`** (`#f5f2eb`, el mismo crema), en claro y en oscuro, como un cartel.
+
+**Colores** (rojo, amarillo y blanco, como pidió el dueño):
+
+| Token        | Hex       | Uso                                                                    |
+| ------------ | --------- | ---------------------------------------------------------------------- |
+| `--rojo`     | `#cc3430` | marca: la cinta del encabezado, botones principales, total del día     |
+| `--amarillo` | `#f4b52c` | acento: pestaña activa, producto elegido, "+ $" al vender, avatar      |
+| `--papel`    | `#f5f2eb` | el fondo del logo: franja del encabezado y panel del login             |
+| `--tinta`    | `#3d2b20` | el marrón de las letras del logo: texto sobre `--papel`                |
+| `--texto`    | `#2e211a` | texto general (marrón muy oscuro en vez de negro, combina con el logo) |
+
+El rojo y el amarillo salen del logo (el rojo, medido en la cinta); el amarillo no está en el logo y se eligió dorado para que combine con el rojo y el marrón. Blanco con rojo da 5,1:1 de contraste (AA).
+Efectivo (verde) y Mercado Pago (azul) **no** cambian con la marca: son colores de medio de pago, y el rojo se reserva para la marca.
 
 ### Paleta de gráficos
 
@@ -73,4 +91,4 @@ Validada con el script de la skill dataviz (banda de luminosidad, croma, separac
 | Egresos       | `#d0612a` | `#d0612a` |
 | Producto (\*) | `#b97c0c` | `#b98418` |
 
-(\*) Serie única de "Ventas por producto". No depende de la marca: si cambian los colores del logo, los gráficos quedan iguales.
+(\*) Serie única de "Ventas por producto". No depende de la marca. El oscuro se volvió a validar sobre la superficie oscura nueva (`#1d1815`).

@@ -1,4 +1,4 @@
-# Granja Dani
+# Granja Los Amigos
 
 App web que reemplaza la **planilla del día** en papel de una granja/pollería: por cada producto, Kg · $ · EFE · MP. Registra ventas por producto (kilos o unidades, importe y medio de pago), cierra el día con arqueo de efectivo y, para el dueño, muestra la planilla de cualquier período, gráficos, precios, egresos y auditoría. La usan personas no técnicas, de pie y con apuro: **si algo frena el mostrador, está mal.**
 
@@ -56,8 +56,8 @@ Fuera de alcance por ahora: stock/inventario, facturación ARCA/AFIP, impresora 
 - Interfaz en español rioplatense con "vos". Mismo vocabulario en toda la app (Efectivo / Mercado Pago, EFE / MP en la planilla). Los errores de reglas los escribe la base (`raise exception … using errcode = 'P0001'`) y la app los muestra tal cual (`mensajeDeError`).
 - Montos: `numeric(12,2)` en la base, nunca float; kilos `numeric(10,3)`. En pantalla: `formatearPesos()`, `formatearCantidad()` y la clase `cifras` (tabular-nums).
 - Fechas en `America/Argentina/Buenos_Aires`: `fechaDeTrabajo()` en el cliente, `hoy_ar()` en la base.
-- Colores: solo tokens de `src/styles/app.css`. **Marca provisoria**: verde campo (`--campo`) y amarillo yema (`--yema`); se cambian ahí cuando llegue el logo. Efectivo = verde, Mercado Pago = azul; en gráficos `--grafico-*` (validados con la skill dataviz). Nunca hex sueltos en componentes.
-- Diseño propio (distinto de GD): encabezado verde con pestañas arriba (no barra lateral), **Plus Jakarta Sans** (`font-texto`), fondo hueso, tarjetas `rounded-tarjeta`, títulos `font-extrabold`, íconos `lucide-react`. Componentes base en `src/components/ui/`. Elemento firma: la **Planilla** en casilleros (`src/components/caja/Planilla.tsx`).
+- Colores: solo tokens de `src/styles/app.css`. Marca del logo: rojo (`--rojo`), amarillo (`--amarillo`), blanco, y `--papel` / `--tinta` (el crema y el marrón del logo: el logo siempre va sobre `--papel`). Efectivo = verde, Mercado Pago = azul (no son colores de marca); en gráficos `--grafico-*` (validados con la skill dataviz). Nunca hex sueltos en componentes.
+- Diseño propio (distinto de GD): encabezado tipo cartel (franja `--papel` con el logo + cinta roja con las pestañas; no barra lateral), **Plus Jakarta Sans** (`font-texto`), fondo blanco cálido, tarjetas `rounded-tarjeta`, títulos `font-extrabold`, íconos `lucide-react`. Componentes base en `src/components/ui/`. Elemento firma: la **Planilla** en casilleros (`src/components/caja/Planilla.tsx`).
 - Teclado primero en la compu, y que ande en celular. Objetivos ≥ 44 px, foco visible, contraste AA, `prefers-reduced-motion`.
 - Sin `any`. Prettier: sin punto y coma, comillas simples, 100 columnas. Las páginas de admin se cargan con `lazy()`.
 - Migraciones versionadas en `supabase/migrations/`, RLS en todas las tablas, tests pgTAP para cada regla nueva.

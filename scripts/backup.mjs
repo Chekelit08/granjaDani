@@ -69,7 +69,7 @@ for (const tabla of TABLAS) {
 }
 await writeFile(
   `${carpeta}/LEEME.txt`,
-  `Backup de Granja Dani del ${ahora.toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}.\n` +
+  `Backup de Granja Los Amigos del ${ahora.toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}.\n` +
     `${total} filas en ${TABLAS.length} tablas. Cada tabla está en .json (completo) y .csv (para abrir en Excel).\n` +
     'Guardalo en un lugar seguro: tiene datos reales del negocio.\n',
 )

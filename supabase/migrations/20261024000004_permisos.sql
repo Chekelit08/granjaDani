@@ -1,5 +1,5 @@
 -- =============================================================================
--- Granja Dani — permisos de ejecución
+-- Granja Los Amigos — permisos de ejecución
 -- Nada para anónimos. Las funciones de trigger y las internas no se pueden
 -- llamar por la API; quedan expuestas solo las operaciones de la app (que
 -- validan rol y reglas por dentro) y los helpers que usan las políticas RLS.
