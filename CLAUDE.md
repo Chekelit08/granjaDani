@@ -30,7 +30,7 @@ npm run db:tipos            # regenera src/lib/tipos-db.ts después de cambiar m
 
 En la nube de Claude Code: `PLAYWRIGHT_CHROMIUM=/opt/pw-browsers/chromium npm run test:e2e` y nunca `playwright install`. Sin Docker, `src/lib/tipos-db.ts` se puede escribir respetando el formato de `supabase gen types`.
 
-Todavía no hay proyecto de Supabase en la nube: ver `docs/DESPLIEGUE.md`.
+Publicada en https://granja-los-amigos.vercel.app; Supabase `aotiojmkvlxtyzpqodru` (São Paulo). Datos y pasos en `docs/DESPLIEGUE.md`.
 
 ## Reglas de negocio (no negociables)
 

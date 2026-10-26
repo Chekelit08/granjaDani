@@ -416,5 +416,3 @@ enabled = true
 
 # Mercado Pago llama sin sesión: la función verifica la firma del webhook
 # (o el secreto del barrido, o que quien llama sea admin) por su cuenta.
-[functions.mercadopago]
-verify_jwt = false

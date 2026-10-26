@@ -2,7 +2,19 @@
 
 Base y login en **Supabase**, la app en **Vercel** (o Cloudflare Pages). Son unos 30 minutos la primera vez. Es el mismo esquema que Avícola GD, en un proyecto **aparte** (otra base, otros usuarios).
 
-## 1. Supabase
+## Dónde está publicada (26/10/2026)
+
+| Dato                                        | Valor                                                                                                     |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| App (Vercel, cuenta de Ezequiel)            | https://granja-los-amigos.vercel.app — proyecto `granja-los-amigos`, rama `claude/epic-heisenberg-s5qdpy` |
+| Supabase                                    | proyecto `granja-los-amigos` (ref `aotiojmkvlxtyzpqodru`), São Paulo, plan Free                           |
+| URL                                         | `https://aotiojmkvlxtyzpqodru.supabase.co`                                                                |
+| Clave publicable (va en la app, es pública) | `sb_publishable_9iPl-ohXe7K-FdezcPcXdQ_cH3RFeQv`                                                          |
+| Primer admin                                | usuario `dueno` (pide cambiar la contraseña temporal al entrar)                                           |
+
+Las 4 migraciones y la función `usuarios` se aplicaron con el conector de Supabase. El plan gratis permite 2 proyectos activos por cuenta: para crear este se **pausó** el proyecto `norte` (se reactiva desde el panel).
+
+## 1. Supabase (si hay que crearlo de cero)
 
 1. Creá el proyecto siguiendo [`SUPABASE.md`](SUPABASE.md) (nombre `granja-dani`, São Paulo, plan Free).
 2. Desde tu compu, en la carpeta del repo:
